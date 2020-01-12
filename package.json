@@ -1,0 +1,22 @@
+{
+  "name": "auctions",
+  "version": "1.0.0",
+  "description": "a simple exercise in using mySQL from JS.",
+  "main": "auction.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "rguthrie",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "clear": "^0.1.0",
+    "figlet": "^1.2.4",
+    "mysql": "^2.16.0",
+    "readline": "^1.3.0"
+  },
+  "engines": {
+    "node": "13.1.0"
+  }
+}
