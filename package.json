@@ -1,5 +1,5 @@
 {
-  "name": "auctions",
+  "name": "top songs",
   "version": "1.0.0",
   "description": "a simple exercise in using mySQL from JS.",
   "main": "auction.js",
@@ -12,6 +12,7 @@
   "dependencies": {
     "chalk": "^3.0.0",
     "clear": "^0.1.0",
+    "dotenv": "^8.2.0",
     "figlet": "^1.2.4",
     "mysql": "^2.16.0",
     "readline": "^1.3.0"

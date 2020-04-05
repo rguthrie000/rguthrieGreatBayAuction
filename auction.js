@@ -1,7 +1,17 @@
-// Great Bay Auction, UCF-ORL-FSF week 6, day 4, exercise 10
+// Great Bay Auction - a CLI database app
 // rguthrie, 20200112
 
-//*@*@*@ MAKE YOUR PASSWORD THE DEFAULT IN ./mysqlConnect.js @*@*@*
+//*@*@*@ Requires an existing mySQL database named 'greatbay_db', 
+//*@*@*@ which has a table named 'auctions'. the schema is provided
+//*@*@*@ in file 'greatbaySchema.sql', with example seeds in
+//*@*@*@ 'greatbaySeeds.sql'.
+
+//*@*@*@ File .env must be provided with the mySQL user ('dbUser')
+//*@*@*@ and password ('password') variables.
+//*@*@*@ Example: for user 'myUser' and password 'pass', .env is
+//*@*@*@ a two-line file as follows:
+//*@*@*@   dbUser=myUser
+//*@*@*@   password=pass
 
 //********************
 //*   Dependencies   *
@@ -12,6 +22,7 @@ const chalk     = require("chalk");
 const figlet    = require("figlet");
 const readline  = require('readline');
 const openMySQL = require('./mysqlConnect.js');
+require("dotenv").config();
 
 //***************
 //*   Globals   *
@@ -224,13 +235,18 @@ function nextCommand(line) {
 //*   Startup   *
 //***************
 
-// Open a mySQL connection and select an existing database.
-// Two additional arguments may be provided: username, password.
-// In mysqlConnect.js, the definition of openMySQL has these arguments
-// with *my* defaults, so the working version of this function is 
-// not pushed. I have provided 'mysqlConnect_inspect.js' to show 
-// the code without providing defaults for username and password.
-let connection = openMySQL('greatbay_db'); 
+// Open a mySQL connection and select the existing database.
+// Note use of environment variables for username and password; the
+// 'dotenv' package allows these values to be defined in file '.env'
+// in the top-level directory. This file is ignored by git, so it
+// does not appear in the repo.
+let connection = openMySQL(
+  'greatbay_db',
+  'localhost',
+  3306, 
+  process.env.dbUser, 
+  process.env.password
+); 
 
 // set up the CLI
 const rl = readline.createInterface({input:process.stdin,output:process.stdout});

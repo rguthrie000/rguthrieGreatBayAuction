@@ -1,6 +1,6 @@
 const mysql = require("mysql");
 
-module.exports = function openMySQL(database, host = 'localhost', port = 3306, username = 'YOUR USERNAME', password = 'YOUR PASSWORD') {
+module.exports = function openMySQL(database, host, port, username, password) {
     let connection = mysql.createConnection({
         host: host,
         port: port,

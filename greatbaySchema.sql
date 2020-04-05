@@ -8,5 +8,3 @@ create table auctions (
 	starting_bid int default 0,
 	highest_bid int default 0
 );
-insert into auctions (item_name,category,starting_bid) values ("knife","cookware",20);
-select * from auctions;
